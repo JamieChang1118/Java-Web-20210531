@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * 我的第一支 Servlet
+ * 我的第一支通用型 Servlet
  * @author boddy
  */
 
