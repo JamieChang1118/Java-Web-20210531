@@ -13,6 +13,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author boddy
  */
 
+
+/*
+    Client端請求URL http://localhost:8080/JavaWeb20210531/hello?name=John
+    /JavaWeb20210531  -> Context path ， 要到 META-INF/context.xml 中設定與配置
+    /hello  -> url-pattern ， 要到 WEB-INF/web.xml 中設定與配置
+*/
 public class HelloHttpServlet extends HttpServlet{
     
     // 從網址送過來的，所以做 doGet 方法

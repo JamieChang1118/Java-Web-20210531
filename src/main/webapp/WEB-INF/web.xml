@@ -7,8 +7,8 @@
     </session-config>
     <!-- 宣告 Servlet -->
     <servlet>
-        <servlet-name>HelloGenericServlet</servlet-name>
-        <servlet-class>com.web.controller.HelloGenericServlet</servlet-class>
+        <servlet-name>HiGenericServlet</servlet-name>
+        <servlet-class>com.web.controller.HiGenericServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HelloHttpServlet</servlet-name>
@@ -17,7 +17,7 @@
     <!-- Servlet 給 Client url 對應設定 -->
     <servlet-mapping>
         <url-pattern>/hi</url-pattern>
-        <servlet-name>HelloGenericServlet</servlet-name>
+        <servlet-name>HiGenericServlet</servlet-name>
     </servlet-mapping>
     <servlet-mapping>
         <url-pattern>/hello</url-pattern>

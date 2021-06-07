@@ -18,7 +18,7 @@ import javax.servlet.ServletResponse;
     /JavaWeb20210531  -> Context path ， 要到 META-INF/context.xml 中設定與配置
     /hi  -> url-pattern ， 要到 WEB-INF/web.xml 中設定與配置
 */
-public class HelloGenericServlet extends GenericServlet{
+public class HiGenericServlet extends GenericServlet{
 
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
