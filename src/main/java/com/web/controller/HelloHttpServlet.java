@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * HttpServlet
  * @author boddy
  */
 
@@ -21,8 +21,7 @@ public class HelloHttpServlet extends HttpServlet{
         //super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
 
         String name = req.getParameter("name");
-        
-        
+               
         System.out.printf("Hello %s %s\n" , name , new Date());   
         PrintWriter out = resp.getWriter();   
         out.print("Hello:");    
