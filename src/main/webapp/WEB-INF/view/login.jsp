@@ -10,8 +10,7 @@
     </head>
     <body style="padding: 20px">
         
-        <form class="pure-form" 
-              enctype="application/x-www-form-urlencoded"
+        <form class="pure-form"
               method="post">
             <fieldset>
                 <legend>Login Form</legend>
