@@ -1,7 +1,8 @@
 <%-- 
-    Document   : recruit
+    Document   : recruit : EL 基本語法與運算子
     Created on : 2021/6/28, 下午 08:49:14
     Author     : boddy
+    
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
