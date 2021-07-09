@@ -1,10 +1,9 @@
 <%-- 
-    Document   : usetag2 : 自訂名為 hello 的 tag
+    Document   : usetag4 : 自訂名為 exchange 的 tag
     Created on : 2021/7/5, 下午 09:13:40
     Author     : boddy
 --%>
 
-<%@page import="java.util.Date"%>
 <%@taglib prefix="my" uri="/tlds/mytld"  %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,15 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+               
         <h1>
-            <my:hello />
+            <my:exchange symbol="USDTWD=x" />
         </h1>
         
         <h1>
-            <my:welcome username="John" >
-                現在時刻:<%=new Date() %>
-            </my:welcome>
+            <my:exchange symbol="123456" />
         </h1>
-                                 
+        
+        <h1>
+            <my:exchange symbol="USDTWD=y" />
+        </h1>
+               
     </body>
 </html>

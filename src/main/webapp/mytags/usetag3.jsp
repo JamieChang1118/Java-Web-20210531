@@ -1,10 +1,9 @@
 <%-- 
-    Document   : usetag2 : 自訂名為 hello 的 tag
+    Document   : usetag3 : 自訂名為 bmi 的 tag，並計算出結果
     Created on : 2021/7/5, 下午 09:13:40
     Author     : boddy
 --%>
 
-<%@page import="java.util.Date"%>
 <%@taglib prefix="my" uri="/tlds/mytld"  %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,15 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+                
         <h1>
-            <my:hello />
+            <my:bmi w="60" h="170" />
         </h1>
         
         <h1>
-            <my:welcome username="John" >
-                現在時刻:<%=new Date() %>
-            </my:welcome>
+            <my:bmi w="60" h="170" result="true" />
         </h1>
-                                 
+        
+        <h1>
+            <my:bmi w="60" h="170" result="false" />
+        </h1>
+              
     </body>
 </html>
