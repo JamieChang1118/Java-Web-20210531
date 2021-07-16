@@ -1,0 +1,60 @@
+package com.web.rest.bookstore;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ * @author boddy
+ */
+
+public class BookDao {
+    // 書籍資料庫
+    public static List<Book> books = new ArrayList<>();
+    
+    // 多筆查詢
+    public static List<Book> getBooks(){
+        return books;
+    }
+    
+    // 單筆查詢
+    public static Book getBook(Integer id){
+        return books.stream().filter(b -> b.getId() == id).findFirst().get();
+    }
+    
+    // 新增
+    public static Boolean createBook(Book book) {
+        boolean flag = books.stream().filter(b -> b.getId() == book.getId()).findAny().isPresent();
+        if(flag == false) {
+            books.add(book);
+            return true;
+        }
+        return false;
+    }
+    
+    // 修改
+    public static Boolean updateBook(Integer id ,Book book){
+        // 庫存中是否有此筆資料
+        Book oBook = getBook(id);
+        if (oBook == null) {
+            return false;
+        }
+        // 將 book 的資料給 oBook
+        oBook.setName(book.getName());
+        oBook.setPrice(book.getPrice());
+        return true;
+    }
+    
+    // 刪除
+    public static Boolean deleteBook(Integer id){
+        // 庫存中是否有此筆資料
+        Book oBook = getBook(id);
+        if (oBook == null) {
+            return false;
+        }
+        books.remove(oBook);
+        return true;
+    }
+    
+    
+}
