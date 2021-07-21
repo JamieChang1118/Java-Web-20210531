@@ -5,6 +5,26 @@
             30
         </session-timeout>
     </session-config>
+    
+    <!-- 解決中文問題的 Filter -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
     <!-- 宣告 Filter -->
     <filter>
         <filter-name>PerformanceFilter</filter-name>
@@ -60,6 +80,10 @@
         <filter-name>HiddenHttpMethodFilter</filter-name>
         <url-pattern>/rest/*</url-pattern>
     </filter-mapping>
+    
+    
+
+
 
     
 </web-app>
