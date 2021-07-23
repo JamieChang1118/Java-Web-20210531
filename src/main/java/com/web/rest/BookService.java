@@ -17,25 +17,20 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-/**
- * 
- * @author boddy
- */
-
 @Path("/book")
 public class BookService {
-       
+
     @Path("/")
     @GET
     @Produces("text/plain")
-    public String getBooks(){
+    public String getBooks() {
         return BookDao.getBooks().toString();
     }
     
     @Path("/{id}")
     @GET
     @Produces("text/plain")
-    public String getBook(@PathParam("id") Integer id){
+    public String getBook(@PathParam("id") Integer id) {
         return BookDao.getBook(id).toString();
     }
     
@@ -43,48 +38,52 @@ public class BookService {
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createBook(@FormParam("id") Integer id, @FormParam("name") String name, @FormParam("price") Integer price) {
-        Book book = new Book(id, name, price);
+    public Response createBook(@FormParam("id") Integer id, 
+                             @FormParam("name") String name,
+                             @FormParam("price") Integer price,
+                             @FormParam("amount") Integer amount) {
+        Book book = new Book(id, name, price, amount);
         if(BookDao.createBook(book)) {
             // 重導指定頁面
             URI location = URI.create("http://localhost:8080/JavaWeb20210531/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
         } else {
-            return Response.status(500, "create error").build();
+            return Response.status(500).build();
         }
         //return BookDao.createBook(book).toString();
     }
     
-       
     @Path("/")
     @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces("text/plain")
-    public Response updateBook(@FormParam("id") Integer id , @FormParam("name") String name , @FormParam("price") Integer price){
-        Book book = new Book(id , name , price);
-        if(BookDao.updateBook(id, book)){
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateBook(@FormParam("id") Integer id, 
+                             @FormParam("name") String name,
+                             @FormParam("price") Integer price,
+                             @FormParam("amount") Integer amount) {
+        Book book = new Book(id, name, price, amount);
+        if(BookDao.updateBook(id, book)) {
             // 重導指定頁面
             URI location = URI.create("http://localhost:8080/JavaWeb20210531/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
         } else {
-            return Response.status(500, "create error").build();
+            return Response.status(500).build();
         }
     }
-    
     
     @Path("/")
     @DELETE
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Produces("text/plain")
-    public Response deleteBook(@FormParam("id") Integer id){      
-        if(BookDao.deleteBook(id)){
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteBook(@FormParam("id") Integer id) {
+        if(BookDao.deleteBook(id)) {
             // 重導指定頁面
             URI location = URI.create("http://localhost:8080/JavaWeb20210531/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
         } else {
-            return Response.status(500, "create error").build();
+            return Response.status(500).build();
         }
     }
-    
+
     
 }
