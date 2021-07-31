@@ -21,7 +21,7 @@ public class JPAContextListener implements ServletContextListener {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.web_JavaWeb20210531_myjpa");
         sce.getServletContext().setAttribute("emf", emf);
     }
-
+    
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         EntityManagerFactory emf = (EntityManagerFactory)sce.getServletContext();

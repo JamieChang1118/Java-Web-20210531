@@ -32,14 +32,14 @@ public class QueryPerson extends HttpServlet {
         // 取得 EntityManger
         EntityManager em = emf.createEntityManager();
         // 全部查詢
-        //Query query = em.createQuery("select p from Person p");
+        //Query query = em.createQuery("select p from Person p");    // 較不好的寫法(測試可以用)
         //out.print(query.getResultList());
         List<Person> list = em.createNamedQuery("Person.findAll").getResultList();
         out.print(list);
         out.print("<hr>");
         // 帶入條件查詢
         list = em.createNamedQuery("Person.findByAge")
-                .setParameter("age", 18)
+                .setParameter("age", 10)    // 找大於 10 歲的
                 .getResultList();
         out.print(list);
         
